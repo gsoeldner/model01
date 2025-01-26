@@ -1,0 +1,36 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: prc-identity-access-management-api
+  description: The prc-identity-access-management-api acts as the IAM Orchestrator to process Identity events triggered from Service-now and executed by Okta. This application also provides endpoints to retrieve details of the processed events for audit purposes.
+  links:
+    - title: Confluence
+      url: https://knaufjira.atlassian.net/wiki/spaces/DaaSP/pages/4137844851/prc-identity-access-management-api
+      icon: web
+    - title: Backlog Item/Demand
+      url: https://knaufjira.atlassian.net/browse/P14737-4284
+      icon: web
+    - title: Mulesoft
+      url: https://eu1.anypoint.mulesoft.com/exchange/adac44a1-707d-4022-9903-2218cd9816e9/prc-identity-access-management-api/minor/1.0/
+      icon: web
+    - title: API Repo
+      url: https://github.com/Knauf-Group/prc-identity-access-management-api
+      icon: web
+    - title: Infrastructure Repo
+      url: https://github.com/Knauf-Group/prc-identity-access-management-api-infrastructure
+      icon: web
+    - title: Configuration Repo
+      url: https://github.com/Knauf-Group/prc-identity-access-management-api-configuration
+      icon: web
+  annotations:
+    github.com/project-slug: Knauf-Group/prc-identity-access-management-api
+    backstage.io/techdocs-ref: dir:.
+    newrelic.com/dashboard-guid: Mzk5MDUzNXxWSVp8REFTSEJPQVJEfGRhOjQzMTk2Mw
+    sonarqube.org/project-key: prc-identity-access-management-api
+spec:
+  type: openapi
+  owner: group:default/dna-daas-di-sirius-mudders
+  lifecycle: production
+  definition:
+    $text: ./api.json
