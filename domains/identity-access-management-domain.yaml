@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: iam
+  description: identity access management
+  title: Identity Access Management
+  links:
+    - url: http://knauf.com/iam
+      title: Domain Readme
+    - url: http://knauf.com/iam/dashboard
+      title: Domain Metrics Dashboard
+      icon: dashboard
+spec:
+  owner: group:default/dna-daas-di-sirius-mudders
+  subdomainOf: daas
+  type: product-group

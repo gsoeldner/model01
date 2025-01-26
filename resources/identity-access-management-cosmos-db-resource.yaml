@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: my-cosmosdb
+  description: A Cosmos DB instance used by identity-access-management
+  annotations:
+    azure.com/resource-uri: "https://portal.azure.com/#resource/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmosdb"
+spec:
+  type: database
+  owner: group:default/dna-daas-di-sirius-mudders
+  system:  iam-client-app
+

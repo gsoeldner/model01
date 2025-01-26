@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: iam-client-app
+  description: Client App related to iam
+  tags:
+    - client-app
+spec:
+  owner: group:default/dna-daas-di-sirius-mudders
+  domain: iam
+  type: product

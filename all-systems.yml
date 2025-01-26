@@ -5,4 +5,5 @@ metadata:
   description: A collection of all Backstage example systems
 spec:
   targets:
-    - ./systems/hello-world-system.yaml
+    - ./systems/iam-client-app-system.yaml
+    - ./systems/iam-connected-app-system.yaml

@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: sbt-it-management-identity-access-mgmt-identity
+  description: A Microsoft Azure Service Bus Topic for pub/sub messaging.
+  annotations:
+    azure.com/portal-link: "https://portal.azure.com/#resource/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ServiceBus/namespaces/<NAMESPACE>/topics/my-servicebus-topic"
+spec:
+  type: topic
+  owner: group:default/dna-daas-di-sirius-mudders
+  system:  iam-client-app
+  lifecycle: production
+
+

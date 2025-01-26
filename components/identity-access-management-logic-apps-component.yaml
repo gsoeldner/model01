@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: cosmos-it-management/identity-access-mgmt/identity-container
+  namespace: default
+  description: An Azure Logic App that orchestrates XYZ flow.
+  annotations:
+    azure.com/portal-link: "https://portal.azure.com/#resource/..."
+spec:
+  type: workflow  
+  system: iam-client-app-system.yaml
+  owner: group:default/dna-daas-di-sirius-mudders
+  lifecycle: production

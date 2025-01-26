@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
   name: example-domains
-  description: A collection of all Backstage example domains
+  description: A collection of Knauf Backstage example domains
 spec:
   targets:
-    - ./domains/hello-world-domain.yaml
+    - ./domains/identity-access-management-domain.yaml

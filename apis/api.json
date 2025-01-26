@@ -1,0 +1,1246 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "prc-identity-access-management-api",
+      "version": "v1"
+    },
+    "schemes": [
+      "https"
+    ],
+    "paths": {
+      "/itm": {},
+      "/itm/identity-access-mgmt": {},
+      "/itm/identity-access-mgmt/identities": {},
+      "/itm/identity-access-mgmt/identities/{objectSingleKey}": {
+        "parameters": [
+          {
+            "name": "objectSingleKey",
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "pattern": "^[0-9]{30}$"
+          }
+        ]
+      },
+      "/itm/identity-access-mgmt/identities/{objectSingleKey}/audit": {
+        "get": {
+          "description": "This endpoint returns all the events processed by IAM Orchestrator for the provided objectSingleKey",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "objectSingleKey",
+              "required": true,
+              "in": "path",
+              "type": "string",
+              "pattern": "^[0-9]{30}$"
+            },
+            {
+              "name": "Content-Type",
+              "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+              "required": false,
+              "in": "header",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {
+                "Content-Type": {
+                  "x-amf-required": false,
+                  "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+                  "type": "string"
+                }
+              },
+              "x-amf-mediaType": "application/json",
+              "schema": {
+                "description": "To be definied on api resource level",
+                "example": [
+                  {
+                    "id": "3c79a7ff-c472-4bb3-b7aa-d3caa2d26735",
+                    "source": "snow",
+                    "specversion": "1.0",
+                    "type": "Identity.CreateUser",
+                    "datacontenttype": "application/json",
+                    "correlationId": "200000d0-a55f-11ee-a027-000a11d33g71",
+                    "sourceId": "RITM0123456",
+                    "status": "CLOSED",
+                    "dataschema": "https://github.com/Knauf-Group/cdm-schemas/blob/main/src/main/resources/schemas/identity.json",
+                    "time": "2023-12-28T08:58:19.354Z",
+                    "error": "CompanyCode and PlantID not found, please resend request once it is available in Okta",
+                    "data": {
+                      "objectSingleKey": "125019796126976000000000060007",
+                      "objectUtilizer": [
+                        "HelloWorld1@knauf.com",
+                        "HelloWorld2@knauf.com"
+                      ],
+                      "companyCode": "0020",
+                      "companyPlantId": "9000",
+                      "department": "Central IT - CIO Office",
+                      "costCenter": "0012345160",
+                      "userCategory": "1005",
+                      "userType": "0005",
+                      "externalCompany": "",
+                      "firstName": "",
+                      "firstNameLocal": "",
+                      "lastName": "Test",
+                      "lastNameLocal": "",
+                      "jobTitle": "Test",
+                      "jobTitleLocal": "",
+                      "internetAccess": true,
+                      "externalJustification": "",
+                      "language": "en",
+                      "externalMailAddress": "",
+                      "mailAddressDomain": "",
+                      "mailboxCreation": true,
+                      "managerUsername": "HelloWorld@knauf.com",
+                      "mobileNumber": "",
+                      "organization": "Knauf IT",
+                      "phoneNumber": "",
+                      "mailAddressPrefix": "",
+                      "externalProjectNumber": "",
+                      "managerEmployeeId": "0000",
+                      "isPcUser": true,
+                      "userStatus": "Okta Account Not Created"
+                    },
+                    "_rid": "M1N4AOH2VsBfAAAAAAAAAA==",
+                    "_self": "dbs/M1N4AA==/colls/M1QWERTYsA=/docs/M1QWERTYUsBfAAAAAAAAAA==/",
+                    "_etag": "\"0100a32f-0000-0d00-0000-0987654390000\"",
+                    "_attachments": "attachments/",
+                    "_ts": 1703754073
+                  }
+                ],
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/items"
+                }
+              }
+            },
+            "204": {
+              "description": "No Content"
+            },
+            "400": {
+              "description": "",
+              "headers": {
+                "Content-Type": {
+                  "x-amf-required": false,
+                  "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+                  "type": "string"
+                }
+              },
+              "x-amf-mediaType": "application/json",
+              "schema": {
+                "$ref": "#/definitions/type"
+              }
+            },
+            "404": {
+              "description": "",
+              "headers": {
+                "Content-Type": {
+                  "x-amf-required": false,
+                  "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+                  "type": "string"
+                }
+              },
+              "x-amf-mediaType": "application/json",
+              "schema": {
+                "$ref": "#/definitions/type"
+              }
+            },
+            "500": {
+              "description": "",
+              "headers": {
+                "Content-Type": {
+                  "x-amf-required": false,
+                  "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+                  "type": "string"
+                }
+              },
+              "x-amf-mediaType": "application/json",
+              "schema": {
+                "$ref": "#/definitions/type"
+              }
+            }
+          },
+          "security": [
+            {
+              "oauth_2_0": []
+            }
+          ]
+        }
+      },
+      "/itm/identity-access-mgmt/identities/{objectSingleKey}/audit/snapshot": {
+        "get": {
+          "description": "This endpoint returns the latest version of Identity for the provided objectSingleKey",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "objectSingleKey",
+              "required": true,
+              "in": "path",
+              "type": "string",
+              "pattern": "^[0-9]{30}$"
+            },
+            {
+              "name": "Content-Type",
+              "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+              "required": false,
+              "in": "header",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {
+                "Content-Type": {
+                  "x-amf-required": false,
+                  "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+                  "type": "string"
+                }
+              },
+              "x-amf-mediaType": "application/json",
+              "schema": {
+                "title": "Identity Canonical Data Model",
+                "description": "To be definied on api resource level",
+                "type": "object",
+                "required": [
+                  "objectSingleKey"
+                ],
+                "properties": {
+                  "internetAccess": {
+                    "type": "boolean"
+                  },
+                  "_attachments": {
+                    "type": "string"
+                  },
+                  "_etag": {
+                    "type": "string"
+                  },
+                  "requestorUsername": {
+                    "type": "string"
+                  },
+                  "groupEndDate": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "mailAddress": {
+                    "type": "string"
+                  },
+                  "managerUsername": {
+                    "type": "string"
+                  },
+                  "jobTitle": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "legalArea": {
+                    "type": "string"
+                  },
+                  "knaufLoginId": {
+                    "type": "string"
+                  },
+                  "externalEmailAddress": {
+                    "type": "string"
+                  },
+                  "objectSingleKey": {
+                    "example": "123456789874561236985214789653",
+                    "type": "string",
+                    "pattern": "^[0-9]{30}$"
+                  },
+                  "collarEmployment": {
+                    "type": "string"
+                  },
+                  "userType": {
+                    "type": "string",
+                    "minLength": 4,
+                    "maxLength": 4
+                  },
+                  "userStatus": {
+                    "type": "string"
+                  },
+                  "objectUtilizer": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "costCenter": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "department": {
+                    "type": "string"
+                  },
+                  "language": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 2
+                  },
+                  "externalMailAddress": {
+                    "type": "string"
+                  },
+                  "companyCode": {
+                    "type": "string",
+                    "minLength": 4,
+                    "maxLength": 4
+                  },
+                  "_self": {
+                    "type": "string"
+                  },
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "legalAreaCode": {
+                    "type": "string"
+                  },
+                  "isPcUser": {
+                    "type": "boolean"
+                  },
+                  "companyPlantId": {
+                    "type": "string",
+                    "minLength": 4,
+                    "maxLength": 4
+                  },
+                  "externalProjectNumber": {
+                    "type": "string"
+                  },
+                  "organization": {
+                    "type": "string"
+                  },
+                  "managerEmployeeId": {
+                    "type": "string"
+                  },
+                  "mailboxCreation": {
+                    "type": "boolean"
+                  },
+                  "jobTitleLocal": {
+                    "type": "string"
+                  },
+                  "userName": {
+                    "type": "string"
+                  },
+                  "_rid": {
+                    "type": "string"
+                  },
+                  "_ts": {
+                    "type": "integer"
+                  },
+                  "lastNameLocal": {
+                    "type": "string"
+                  },
+                  "mobileNumber": {
+                    "type": "string"
+                  },
+                  "externalJustification": {
+                    "type": "string"
+                  },
+                  "userCategory": {
+                    "type": "string",
+                    "minLength": 4,
+                    "maxLength": 4
+                  },
+                  "externalCompany": {
+                    "type": "string"
+                  },
+                  "mailAddressPrefix": {
+                    "type": "string"
+                  },
+                  "employeeId": {
+                    "type": "string"
+                  },
+                  "createdByHRUser": {
+                    "type": "string"
+                  },
+                  "groupStartDate": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "mailAddressDomain": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "firstNameLocal": {
+                    "type": "string"
+                  },
+                  "phoneNumber": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "204": {
+              "description": "No Content"
+            },
+            "400": {
+              "description": "",
+              "headers": {
+                "Content-Type": {
+                  "x-amf-required": false,
+                  "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+                  "type": "string"
+                }
+              },
+              "x-amf-mediaType": "application/json",
+              "schema": {
+                "$ref": "#/definitions/type"
+              }
+            },
+            "404": {
+              "description": "",
+              "headers": {
+                "Content-Type": {
+                  "x-amf-required": false,
+                  "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+                  "type": "string"
+                }
+              },
+              "x-amf-mediaType": "application/json",
+              "schema": {
+                "$ref": "#/definitions/type"
+              }
+            },
+            "500": {
+              "description": "",
+              "headers": {
+                "Content-Type": {
+                  "x-amf-required": false,
+                  "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+                  "type": "string"
+                }
+              },
+              "x-amf-mediaType": "application/json",
+              "schema": {
+                "$ref": "#/definitions/type"
+              }
+            }
+          },
+          "security": [
+            {
+              "oauth_2_0": []
+            }
+          ]
+        }
+      },
+      "/itm/identity-access-mgmt/identities/{objectSingleKey}/audit/command": {
+        "parameters": [
+          {
+            "name": "objectSingleKey",
+            "required": true,
+            "in": "path",
+            "type": "string",
+            "pattern": "^[0-9]{30}$"
+          }
+        ]
+      },
+      "/itm/identity-access-mgmt/identities/{objectSingleKey}/audit/command/{correlationId}": {
+        "get": {
+          "description": "This endpoint returns one specific event processed by IAM Orchestrator for the provided objectSingleKey and correlationId",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "objectSingleKey",
+              "required": true,
+              "in": "path",
+              "type": "string",
+              "pattern": "^[0-9]{30}$"
+            },
+            {
+              "name": "correlationId",
+              "required": true,
+              "in": "path",
+              "type": "string"
+            },
+            {
+              "name": "Content-Type",
+              "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+              "required": false,
+              "in": "header",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {
+                "Content-Type": {
+                  "x-amf-required": false,
+                  "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+                  "type": "string"
+                }
+              },
+              "x-amf-mediaType": "application/json",
+              "schema": {
+                "description": "To be definied on api resource level",
+                "example": [
+                  {
+                    "id": "3c79a7ff-c472-4bb3-b7aa-d3caa2d26735",
+                    "source": "snow",
+                    "specversion": "1.0",
+                    "type": "Identity.CreateUser",
+                    "datacontenttype": "application/json",
+                    "correlationId": "200000d0-a55f-11ee-a027-000a11d33g71",
+                    "sourceId": "RITM0123456",
+                    "status": "CLOSED",
+                    "dataschema": "https://github.com/Knauf-Group/cdm-schemas/blob/main/src/main/resources/schemas/identity.json",
+                    "time": "2023-12-28T08:58:19.354Z",
+                    "error": "CompanyCode and PlantID not found, please resend request once it is available in Okta",
+                    "data": {
+                      "objectSingleKey": "125019796126976000000000060007",
+                      "objectUtilizer": [
+                        "HelloWorld1@knauf.com",
+                        "HelloWorld2@knauf.com"
+                      ],
+                      "companyCode": "0020",
+                      "companyPlantId": "9000",
+                      "department": "Central IT - CIO Office",
+                      "costCenter": "0012345160",
+                      "userCategory": "1005",
+                      "userType": "0005",
+                      "externalCompany": "",
+                      "firstName": "",
+                      "firstNameLocal": "",
+                      "lastName": "Test",
+                      "lastNameLocal": "",
+                      "jobTitle": "Test",
+                      "jobTitleLocal": "",
+                      "internetAccess": true,
+                      "externalJustification": "",
+                      "language": "en",
+                      "externalMailAddress": "",
+                      "mailAddressDomain": "",
+                      "mailboxCreation": true,
+                      "managerUsername": "HelloWorld@knauf.com",
+                      "mobileNumber": "",
+                      "organization": "Knauf IT",
+                      "phoneNumber": "",
+                      "mailAddressPrefix": "",
+                      "externalProjectNumber": "",
+                      "managerEmployeeId": "0000",
+                      "isPcUser": true,
+                      "userStatus": "Okta Account Not Created"
+                    },
+                    "_rid": "M1N4AOH2VsBfAAAAAAAAAA==",
+                    "_self": "dbs/M1N4AA==/colls/M1QWERTYsA=/docs/M1QWERTYUsBfAAAAAAAAAA==/",
+                    "_etag": "\"0100a32f-0000-0d00-0000-0987654390000\"",
+                    "_attachments": "attachments/",
+                    "_ts": 1703754073
+                  }
+                ],
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/items"
+                }
+              }
+            },
+            "204": {
+              "description": "No Content"
+            },
+            "400": {
+              "description": "",
+              "headers": {
+                "Content-Type": {
+                  "x-amf-required": false,
+                  "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+                  "type": "string"
+                }
+              },
+              "x-amf-mediaType": "application/json",
+              "schema": {
+                "$ref": "#/definitions/type"
+              }
+            },
+            "404": {
+              "description": "",
+              "headers": {
+                "Content-Type": {
+                  "x-amf-required": false,
+                  "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+                  "type": "string"
+                }
+              },
+              "x-amf-mediaType": "application/json",
+              "schema": {
+                "$ref": "#/definitions/type"
+              }
+            },
+            "500": {
+              "description": "",
+              "headers": {
+                "Content-Type": {
+                  "x-amf-required": false,
+                  "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+                  "type": "string"
+                }
+              },
+              "x-amf-mediaType": "application/json",
+              "schema": {
+                "$ref": "#/definitions/type"
+              }
+            }
+          },
+          "security": [
+            {
+              "oauth_2_0": []
+            }
+          ]
+        }
+      }
+    },
+    "definitions": {
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "source",
+          "specversion",
+          "type",
+          "datacontenttype",
+          "correlationId",
+          "sourceId",
+          "status",
+          "dataschema",
+          "time",
+          "data",
+          "_rid",
+          "_self",
+          "_etag",
+          "_attachments",
+          "_ts"
+        ],
+        "properties": {
+          "id": {
+            "example": "3c79a7ff-c472-4bb3-b7aa-d3caa2d26735",
+            "type": "string"
+          },
+          "source": {
+            "example": "snow",
+            "type": "string"
+          },
+          "specversion": {
+            "example": "1.0",
+            "type": "string"
+          },
+          "type": {
+            "example": "Identity.CreateUser",
+            "type": "string"
+          },
+          "datacontenttype": {
+            "example": "application/json",
+            "type": "string"
+          },
+          "correlationId": {
+            "example": "2ea1b5d0-a55f-11ee-a027-06b9fdfb4f01",
+            "type": "string"
+          },
+          "sourceId": {
+            "example": "RITM0989761",
+            "type": "string"
+          },
+          "status": {
+            "example": "CLOSED",
+            "type": "string"
+          },
+          "dataschema": {
+            "example": "https://github.com/Knauf-Group/cdm-schemas/blob/main/src/main/resources/schemas/identity.json",
+            "type": "string"
+          },
+          "time": {
+            "example": "2023-12-28T08:58:19.354Z",
+            "type": "string",
+            "format": "date-time"
+          },
+          "error": {
+            "example": "CompanyCode and PlantID not found, please resend request once it is available in Okta",
+            "type": "string"
+          },
+          "deactivationDate": {
+            "example": "2023-12-28",
+            "type": "string",
+            "format": "date"
+          },
+          "reactivationDate": {
+            "example": "2024-01-01",
+            "type": "string",
+            "format": "date"
+          },
+          "data": {
+            "type": "object",
+            "required": [
+              "objectSingleKey"
+            ],
+            "properties": {
+              "objectSingleKey": {
+                "example": "125019796126976000000000060017",
+                "type": "string"
+              },
+              "objectUtilizer": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "companyCode": {
+                "example": "0020",
+                "type": "string"
+              },
+              "companyPlantId": {
+                "example": "9410",
+                "type": "string"
+              },
+              "department": {
+                "example": "Central IT - CIO Office",
+                "type": "string"
+              },
+              "costCenter": {
+                "example": "0123456160",
+                "type": "string"
+              },
+              "userCategory": {
+                "example": "1005",
+                "type": "string"
+              },
+              "userType": {
+                "example": "0005",
+                "type": "string"
+              },
+              "externalCompany": {
+                "example": "",
+                "type": "string"
+              },
+              "firstName": {
+                "example": "",
+                "type": "string"
+              },
+              "firstNameLocal": {
+                "example": "",
+                "type": "string"
+              },
+              "lastName": {
+                "example": "Test",
+                "type": "string"
+              },
+              "lastNameLocal": {
+                "example": "",
+                "type": "string"
+              },
+              "jobTitle": {
+                "example": "Test",
+                "type": "string"
+              },
+              "jobTitleLocal": {
+                "example": "",
+                "type": "string"
+              },
+              "internetAccess": {
+                "type": "boolean"
+              },
+              "externalJustification": {
+                "example": "",
+                "type": "string"
+              },
+              "language": {
+                "example": "en",
+                "type": "string"
+              },
+              "externalMailAddress": {
+                "example": "",
+                "type": "string"
+              },
+              "mailAddressDomain": {
+                "example": "",
+                "type": "string"
+              },
+              "mailboxCreation": {
+                "example": true,
+                "type": "boolean"
+              },
+              "managerUsername": {
+                "example": "HelloWorldS@knauf.com",
+                "type": "string"
+              },
+              "mobileNumber": {
+                "example": "",
+                "type": "string"
+              },
+              "organization": {
+                "example": "Knauf",
+                "type": "string"
+              },
+              "phoneNumber": {
+                "example": "",
+                "type": "string"
+              },
+              "mailAddressPrefix": {
+                "example": "",
+                "type": "string"
+              },
+              "externalProjectNumber": {
+                "example": "",
+                "type": "string"
+              },
+              "managerEmployeeId": {
+                "example": "8745",
+                "type": "string"
+              },
+              "isPcUser": {
+                "example": true,
+                "type": "boolean"
+              },
+              "userStatus": {
+                "example": "Okta Account Not Created",
+                "type": "string"
+              }
+            }
+          },
+          "_rid": {
+            "example": "M1N4AOH2VsBfAAAAAAAAAA==",
+            "type": "string"
+          },
+          "_self": {
+            "example": "dbs/M1N4AA==/colls/M1N4AOH2VsA=/docs/M1N4AOH2VsBfAAAAAAAAAA==/",
+            "type": "string"
+          },
+          "_etag": {
+            "example": "\"00000013-0000-0a00-0000-123456590000\"",
+            "type": "string"
+          },
+          "_attachments": {
+            "example": "attachments/",
+            "type": "string"
+          },
+          "_ts": {
+            "example": 1703754333,
+            "type": "integer"
+          }
+        }
+      },
+      "type": {
+        "title": "API Error",
+        "description": "API Error Response Data Type",
+        "x-amf-examples": {
+          "example_2": {
+            "errorCode": "404",
+            "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+            "timeStamp": "2023-05-02T16:49:17Z",
+            "description": "Not Found",
+            "detailedDescription": "Not Found"
+          },
+          "amf_example_1": {
+            "errorCode": "500",
+            "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+            "timeStamp": "2023-05-02T16:49:17Z",
+            "description": "Internal Server Error",
+            "detailedDescription": "Internal Server Error"
+          },
+          "example_1": {
+            "errorCode": "401",
+            "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+            "timeStamp": "2023-05-02T16:49:17Z",
+            "description": "Unauthorized",
+            "detailedDescription": "Unauthorized access or error when connecting to the authorization server"
+          },
+          "amf_example_2": {
+            "errorCode": "403",
+            "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+            "timeStamp": "2023-05-02T16:49:17Z",
+            "description": "Forbidden",
+            "detailedDescription": "Forbidden, invalid client application credentials"
+          },
+          "example_0": {
+            "errorCode": "400",
+            "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+            "timeStamp": "2023-05-02T16:49:17Z",
+            "description": "Bad Request",
+            "detailedDescription": "Bad Request"
+          }
+        },
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "errorCode": {
+            "description": "HTTP Error Code",
+            "type": "string"
+          },
+          "correlationId": {
+            "description": "Message Correlation Id",
+            "type": "string"
+          },
+          "timeStamp": {
+            "description": "Timestamp when error occured",
+            "type": "string",
+            "format": "date-time"
+          },
+          "description": {
+            "description": "Short error description",
+            "type": "string"
+          },
+          "detailedDescription": {
+            "description": "Detailed error description",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securityDefinitions": {
+      "oauth_2_0": {
+        "type": "oauth2",
+        "description": "This API supports OAuth 2.0 for authenticating all API requests.",
+        "x-amf-describedBy": {
+          "headers": {
+            "Authorization": {
+              "description": "Used to send a valid OAuth 2 access token.",
+              "type": "string"
+            }
+          },
+          "responses": {
+            "400": {
+              "description": "Invalid token.",
+              "headers": {
+                "Content-Type": {
+                  "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+                  "required": false,
+                  "type": "string"
+                }
+              },
+              "body": {
+                "application/json": {
+                  "displayName": "API Error",
+                  "description": "API Error Response Data Type",
+                  "examples": {
+                    "example_2": {
+                      "errorCode": "404",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Not Found",
+                      "detailedDescription": "Not Found"
+                    },
+                    "example_0": {
+                      "errorCode": "400",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Bad Request",
+                      "detailedDescription": "Bad Request"
+                    },
+                    "example_1": {
+                      "errorCode": "401",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Unauthorized",
+                      "detailedDescription": "Unauthorized access or error when connecting to the authorization server"
+                    },
+                    "example_1": {
+                      "errorCode": "500",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Internal Server Error",
+                      "detailedDescription": "Internal Server Error"
+                    },
+                    "example_0": {
+                      "errorCode": "403",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Forbidden",
+                      "detailedDescription": "Forbidden, invalid client application credentials"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "properties": {
+                    "errorCode": {
+                      "description": "HTTP Error Code",
+                      "type": "string",
+                      "required": false
+                    },
+                    "correlationId": {
+                      "description": "Message Correlation Id",
+                      "type": "string",
+                      "required": false
+                    },
+                    "timeStamp": {
+                      "description": "Timestamp when error occured",
+                      "type": "datetime",
+                      "required": false
+                    },
+                    "description": {
+                      "description": "Short error description",
+                      "type": "string",
+                      "required": false
+                    },
+                    "detailedDescription": {
+                      "description": "Detailed error description",
+                      "type": "string",
+                      "required": false
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized access or error when connecting to the authorization server.",
+              "headers": {
+                "Content-Type": {
+                  "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+                  "required": false,
+                  "type": "string"
+                }
+              },
+              "body": {
+                "application/json": {
+                  "displayName": "API Error",
+                  "description": "API Error Response Data Type",
+                  "examples": {
+                    "example_2": {
+                      "errorCode": "404",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Not Found",
+                      "detailedDescription": "Not Found"
+                    },
+                    "example_0": {
+                      "errorCode": "400",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Bad Request",
+                      "detailedDescription": "Bad Request"
+                    },
+                    "example_1": {
+                      "errorCode": "401",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Unauthorized",
+                      "detailedDescription": "Unauthorized access or error when connecting to the authorization server"
+                    },
+                    "example_1": {
+                      "errorCode": "500",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Internal Server Error",
+                      "detailedDescription": "Internal Server Error"
+                    },
+                    "example_0": {
+                      "errorCode": "403",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Forbidden",
+                      "detailedDescription": "Forbidden, invalid client application credentials"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "properties": {
+                    "errorCode": {
+                      "description": "HTTP Error Code",
+                      "type": "string",
+                      "required": false
+                    },
+                    "correlationId": {
+                      "description": "Message Correlation Id",
+                      "type": "string",
+                      "required": false
+                    },
+                    "timeStamp": {
+                      "description": "Timestamp when error occured",
+                      "type": "datetime",
+                      "required": false
+                    },
+                    "description": {
+                      "description": "Short error description",
+                      "type": "string",
+                      "required": false
+                    },
+                    "detailedDescription": {
+                      "description": "Detailed error description",
+                      "type": "string",
+                      "required": false
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden, invalid client application credentials.",
+              "headers": {
+                "Content-Type": {
+                  "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+                  "required": false,
+                  "type": "string"
+                }
+              },
+              "body": {
+                "application/json": {
+                  "displayName": "API Error",
+                  "description": "API Error Response Data Type",
+                  "examples": {
+                    "example_2": {
+                      "errorCode": "404",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Not Found",
+                      "detailedDescription": "Not Found"
+                    },
+                    "example_0": {
+                      "errorCode": "400",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Bad Request",
+                      "detailedDescription": "Bad Request"
+                    },
+                    "example_1": {
+                      "errorCode": "401",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Unauthorized",
+                      "detailedDescription": "Unauthorized access or error when connecting to the authorization server"
+                    },
+                    "example_1": {
+                      "errorCode": "500",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Internal Server Error",
+                      "detailedDescription": "Internal Server Error"
+                    },
+                    "example_0": {
+                      "errorCode": "403",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Forbidden",
+                      "detailedDescription": "Forbidden, invalid client application credentials"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "properties": {
+                    "errorCode": {
+                      "description": "HTTP Error Code",
+                      "type": "string",
+                      "required": false
+                    },
+                    "correlationId": {
+                      "description": "Message Correlation Id",
+                      "type": "string",
+                      "required": false
+                    },
+                    "timeStamp": {
+                      "description": "Timestamp when error occured",
+                      "type": "datetime",
+                      "required": false
+                    },
+                    "description": {
+                      "description": "Short error description",
+                      "type": "string",
+                      "required": false
+                    },
+                    "detailedDescription": {
+                      "description": "Detailed error description",
+                      "type": "string",
+                      "required": false
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Bad response from authorization server, or WSDL SOAP Fault error.",
+              "headers": {
+                "Content-Type": {
+                  "description": "The Content Type representation header is used to indicate the original media type of the resource (prior to any content encoding applied for sending).",
+                  "required": false,
+                  "type": "string"
+                }
+              },
+              "body": {
+                "application/json": {
+                  "displayName": "API Error",
+                  "description": "API Error Response Data Type",
+                  "examples": {
+                    "example_2": {
+                      "errorCode": "404",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Not Found",
+                      "detailedDescription": "Not Found"
+                    },
+                    "example_0": {
+                      "errorCode": "400",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Bad Request",
+                      "detailedDescription": "Bad Request"
+                    },
+                    "example_1": {
+                      "errorCode": "401",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Unauthorized",
+                      "detailedDescription": "Unauthorized access or error when connecting to the authorization server"
+                    },
+                    "example_1": {
+                      "errorCode": "500",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Internal Server Error",
+                      "detailedDescription": "Internal Server Error"
+                    },
+                    "example_0": {
+                      "errorCode": "403",
+                      "correlationId": "e5703001-e900-11ed-828e-0a0027000003",
+                      "timeStamp": "2023-05-02T16:49:17Z",
+                      "description": "Forbidden",
+                      "detailedDescription": "Forbidden, invalid client application credentials"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "properties": {
+                    "errorCode": {
+                      "description": "HTTP Error Code",
+                      "type": "string",
+                      "required": false
+                    },
+                    "correlationId": {
+                      "description": "Message Correlation Id",
+                      "type": "string",
+                      "required": false
+                    },
+                    "timeStamp": {
+                      "description": "Timestamp when error occured",
+                      "type": "datetime",
+                      "required": false
+                    },
+                    "description": {
+                      "description": "Short error description",
+                      "type": "string",
+                      "required": false
+                    },
+                    "detailedDescription": {
+                      "description": "Detailed error description",
+                      "type": "string",
+                      "required": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

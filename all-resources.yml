@@ -5,4 +5,15 @@ metadata:
   description: A collection of all Backstage example resources
 spec:
   targets:
-    - ./resources/hello-world-resource.yaml
+    - ./resources/identity-access-management-cosmos-db-resource.yaml
+    - ./resources/identity-access-management-dlq-okta-identity-request-resource.yaml
+    - ./resources/identity-access-management-dlq-okta-identity-response-resource.yaml
+    - ./resources/identity-access-management-dlq-prc-identity-retry-resource.yaml
+    - ./resources/identity-access-management-dlq-sap-sf-identity-resource.yaml
+    - ./resources/identity-access-management-dlq-snow-identity-request-resource.yaml
+    - ./resources/identity-access-management-q-okta-identity-request-resource.yaml
+    - ./resources/identity-access-management-q-okta-identity-response-resource.yaml
+    - ./resources/identity-access-management-q-prc-identity-retry-resource.yaml
+    - ./resources/identity-access-management-q-sap-sf-identity-resource.yaml
+    - ./resources/identity-access-management-q-snow-identity-request-resource.yaml
+    - ./resources/identity-access-management-sbt-resource.yaml

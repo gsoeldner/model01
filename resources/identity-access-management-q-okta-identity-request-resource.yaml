@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: q.okta.identity.request
+  description: A queue on MuleSoft Anypoint MQ for asynchronous message processing.
+  annotations:
+    mulesoft.com/queue-uri: "https://anypoint.mulesoft.com/mq/<org-id>/<env-id>/queues/my-anypoint-mq-queue"
+spec:
+  type: queue
+  owner: group:default/dna-daas-di-sirius-mudders
+  system:  iam-client-app
+  lifecycle: production
