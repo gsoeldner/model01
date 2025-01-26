@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: cosmos-it-management/identity-access-mgmt/identity-container
+  name: cosmos-db-container
   description: This component represents a containerized application or service.
   annotations:
     azure.com/portal-link: "https://portal.azure.com/#resource/..."
