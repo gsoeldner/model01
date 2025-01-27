@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: connected app
+  name: connected-app
   description: This component represents a connected app
   annotations:
     azure.com/portal-link: "https://portal.azure.com/#resource/..."

@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: logic-app-componenent
+  name: logic-app-component
   namespace: default
   description: An Azure Logic App that orchestrates XYZ flow.
   annotations:
