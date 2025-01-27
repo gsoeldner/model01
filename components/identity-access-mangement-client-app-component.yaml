@@ -12,5 +12,7 @@ spec:
   lifecycle: production
   providesApis:
     - prc-identity-access-management-api
-
+  dependsOn:
+    - component:cosmos-db-container
+    - component:logic-app-component
 
