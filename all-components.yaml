@@ -6,3 +6,6 @@ metadata:
 spec:
   targets:
     - ./components/identity-access-mangement-container-component.yaml
+    - ./components/identity-access-management-logic-apps-component.yaml
+    - ./components/identity-access-mangement-client-app-component.yaml
+    - ./components/identity-access-mangement-connected-app-component.yaml
