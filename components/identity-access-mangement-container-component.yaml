@@ -1,15 +1,14 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: client-app
+  name: cosmos-db-container
   description: This component represents a client app
   annotations:
     azure.com/portal-link: "https://portal.azure.com/#resource/..."
 spec:
-  type: client-app
+  type: container-image
   owner: group:default/dna-daas-di-sirius-mudders
   system: iam-system
   lifecycle: production
   providesApis:
     - prc-identity-access-management-api
-
