@@ -8,7 +8,7 @@ metadata:
 spec:
   type: topic
   owner: group:default/dna-daas-di-sirius-mudders
-  system:  iam-client-app
+  system:  iam-system
   lifecycle: production
 
 

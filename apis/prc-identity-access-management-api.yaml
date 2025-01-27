@@ -31,6 +31,7 @@ metadata:
 spec:
   type: openapi
   owner: group:default/dna-daas-di-sirius-mudders
+  system: iam-system
   lifecycle: production
   definition:
     $text: ./api.json

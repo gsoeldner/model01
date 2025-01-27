@@ -8,6 +8,6 @@ metadata:
     azure.com/portal-link: "https://portal.azure.com/#resource/..."
 spec:
   type: workflow  
-  system: iam-client-app-system.yaml
+  system: iam-system
   owner: group:default/dna-daas-di-sirius-mudders
   lifecycle: production

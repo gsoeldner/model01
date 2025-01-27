@@ -8,5 +8,5 @@ metadata:
 spec:
   type: queue
   owner: group:default/dna-daas-di-sirius-mudders
-  system:  iam-client-app
+  system:  iam-system
   lifecycle: production

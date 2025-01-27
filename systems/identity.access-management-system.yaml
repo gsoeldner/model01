@@ -1,10 +1,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: iam-connected-app
-  description: Connected App related to iam
+  name: iam-system
+  description: IAM System
   tags:
-    - client-app
+    - iam
 spec:
   owner: group:default/dna-daas-di-sirius-mudders
   domain: iam
